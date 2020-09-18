@@ -1,9 +1,12 @@
 # <div align="center">  Monster Shop Final - Bulk Discount
 #### Cohort 2006
 
+## Statistics
+   ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)    ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+
  ### Student
 
-<p>[Nico Rithner](https://github.com/nicorithner)</p>
+[Nico Rithner](https://github.com/nicorithner) <br>
 
 
 
@@ -27,10 +30,6 @@ Merchants add bulk discount rates for all of their inventory. These apply automa
 1. A bulk discount will only apply to items which exceed the minimum quantity specified in the bulk discount. (eg, a 5% off 5 items or more does not activate if a user is buying 1 quantity of 5 different items; if they raise the quantity of one item to 5, then the bulk discount is only applied to that one item, not all of the others as well)
 1. When there is a conflict between two discounts, the greater of the two will be applied. 
 1. Final discounted prices should appear on the orders show page.
-
-
-## Statistics
-   ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)    ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
 
 ## Instructions
