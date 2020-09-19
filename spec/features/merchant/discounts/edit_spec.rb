@@ -51,14 +51,14 @@ RSpec.describe "Edit Discount Page" do
       it "There is a form" do
         visit "/merchant/discounts/#{@discount_1.id}/edit"
 
-        expect(page).to have_content("Edit Discount")
+        expect(page).to have_content("Edit '#{@discount_1.name}' Discount")
         find_field('Name').value
         find_field('Discount percentage')
         find_field('Minimum quantity')
         find_button('Edit')
       end
 
-      it "After making changes clicking 'Edit' redirects back to the index" do
+      it "After making changes clicking 'Edit' redirects back to the index where edits are visible" do
         visit "/merchant/discounts/#{@discount_1.id}/edit"
 
         name = '5% off 5 M&Ms Small Packages'
@@ -69,11 +69,8 @@ RSpec.describe "Edit Discount Page" do
         fill_in 'Discount percentage', with: percentage
         fill_in 'Minimum quantity', with: minimum
         click_button 'Edit'
-        expect(current_path).to eq('/merchant/discounts')
-      end
 
-      it "After being redirected the edits made are visible in the discount's information" do
-        visit "/merchant/discounts"
+        expect(current_path).to eq('/merchant/discounts')
 
         within("#discount-#{@discount_1.id}") do
           expect(page).to have_content("5% off 5 M&Ms Small Packages")
