@@ -1,5 +1,8 @@
 <% @discounts.each do |discount| %>
-  <h3>Discount Name: <%= discount.name %></h3><br/>
-  <ul>Discount Percentage: <%= discount.discount_percentage %>%</ul><br />
-  <ul>Minimum Item Quantity: <%= discount.minimum_quantity %></ul><br />
+  <div id="discount-<%=discount.id%>">
+    <h3>Discount Name: <%= discount.name %></h3><br/>
+    <ul>Discount Percentage: <%= discount.discount_percentage %>%</ul><br />
+    <ul>Minimum Item Quantity: <%= discount.minimum_quantity %></ul><br />
+    <ul><%= link_to 'Edit', "/merchant/discounts/#{discount.id}/edit" %></ul>
+  </div>
 <%end%>
