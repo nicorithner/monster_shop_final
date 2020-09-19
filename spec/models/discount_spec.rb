@@ -6,4 +6,8 @@ RSpec.describe Discount do
     it {should validate_presence_of :discount_percentage}
     it {should validate_presence_of :minimum_quantity}
   end
+
+  describe 'Associations' do
+    it {should belong_to :merchant}
+  end
 end
