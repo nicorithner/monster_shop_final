@@ -38,11 +38,11 @@ RSpec.describe "Edit Discount Page" do
 
       it "Clicking edit leads to edit page for that discount" do
         visit '/merchant/discounts'
-
         within("#discount-#{@discount_1.id}") do
           click_link("Edit")
         end
-        expect(current_path).to eq.("/merchant/discounts/#{@discount_1.id}/edit")
+        id = @discount_1.id
+        expect(current_path).to eq("/merchant/discounts/#{id}/edit")
       end
     end
 
