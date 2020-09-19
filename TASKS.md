@@ -12,10 +12,10 @@
 
 ### Discount Validation
 
-- [] Validation test
-- [] Discount model validates :name, :discount_percentage, :minimum_quantity
-- [] Create table
-- [] Run db:migrate
+- [x] Validation test
+- [x] Discount model validates :name, :discount_percentage, :minimum_quantity
+- [x] Create table
+- [x] Run db:migrate
 
 ### Associations - Story 1
 
@@ -54,7 +54,8 @@
 - [] Merchant has a discount show page in his shop. Show action/view
   - [] Can see a list of existing discounts for the shop.
     - [] Discount 'Name'
-    - [] Discount 'Description'
+    - [] Discount 'discount_percentage'
+    - [] Discount 'minimum_quantity'
 
 ### Story 3
 
