@@ -29,10 +29,16 @@ RSpec.describe "New Discount Page" do
 
     it "Merchant discounts are listed in the index page" do
       visit '/merchant/discounts'
-      save_and_open_page
       expect(page).to have_content(@discount_1.name)
       expect(page).to have_content(@discount_1.discount_percentage)
       expect(page).to have_content(@discount_1.minimum_quantity)
+    end
+
+    it "Merchant discounts are listed in the index page" do
+      visit '/merchant'
+      expect(page).to have_link("View Discounts")
+      click_link("View Discounts")
+      expect(current_path).to eq("/merchant/discounts")
     end
   end
 end
