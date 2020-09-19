@@ -65,7 +65,7 @@
     - [x] Discount 'minimum_quantity'
 
 ### Story 3
-- []
+- [x]
 #### Update
 
 - [x] Merchant can update discounts. Test #update
@@ -73,9 +73,9 @@
 - [] Access form via discounts index where there is an 'Edit' link.
 - [x] Edit action in the controller
 - [x] There is an Edit View page
-- [] There is an Edit form
-- [] User can update the discount info via the form
-- [] User is redirected to discounts index page after submitting changes.
+- [x] There is an Edit form
+- [x] User can update the discount info via the form
+- [x] User is redirected to discounts index page after submitting changes.
 
 ### Story 4
 
