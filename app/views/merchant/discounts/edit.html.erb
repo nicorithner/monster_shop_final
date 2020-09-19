@@ -1,0 +1,15 @@
+<h1>Edit '<%=@discount.name%>' Discount</h1>
+
+<%= form_with(model: @discount, url: "/merchant/discounts/:id") do |form| %>
+
+<%= form.label :name %><br />
+<%= form.text_field :name %><br />
+
+<%= form.label :discount_percentage %><br />
+<%= form.text_field :discount_percentage %><br />
+
+<%= form.label :minimum_quantity %><br />
+<%= form.number_field :minimum_quantity %><br />
+
+<%= form.submit 'Edit' %>
+<%end%>
