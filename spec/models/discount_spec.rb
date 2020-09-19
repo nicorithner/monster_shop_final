@@ -29,10 +29,10 @@ RSpec.describe Discount do
     end
   end
 
-  describe "Merchant can edit a discount. Database" do
+  describe "Merchant can edit a discount" do
     it "#update" do
       @discount_1 = @merchant_1.discounts.create(name: "5% off 5", discount_percentage: 5, minimum_quantity: 5)
-      
+
       @discount_1.update(name: "10% off 5", discount_percentage: 5, minimum_quantity: 5)
       expect(@discount_1.name).to eq("10% off 5")
 
