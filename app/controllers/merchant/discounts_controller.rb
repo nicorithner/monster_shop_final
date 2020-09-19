@@ -14,6 +14,9 @@ class Merchant::DiscountsController < Merchant::BaseController
     flash[:success] = "Discount #{discount.name} created!"
   end
 
+  def edit
+  end
+
   private
 
   def discount_params
