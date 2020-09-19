@@ -30,10 +30,9 @@
 
 #### Item/Discount association
 
-- [] Item/Discount Associations test.
-  - [] Discount has_many items
-  - [] item has one discount
-    - [] Create items discount_id foreign key
+- [x] Item/Discount Associations test.
+  - [x] Discount has_many items THROUGH merchant
+  - [x] item has 'discount_id' foreign key
 
 ### Story 1
 
