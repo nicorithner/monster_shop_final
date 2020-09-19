@@ -50,6 +50,7 @@
 
 #### Story 1.2
 
+- [] Merchant shop's discounts only apply to merchant's items ONCE they reach a certain quantity of the same item in the same cart/order
 - [] Merchant shop's discounts only apply to merchant's items
 
 ### Story 2
