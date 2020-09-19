@@ -70,13 +70,12 @@
 
 - [x] Merchant can update discounts. Test #update
 - [x] Create Feature tests
-- [] Can #edit shop discounts via a form.
 - [] Access form via discounts index where there is an 'Edit' link.
-- [] Edit action in the controller
-- [] There is an Edit View page
+- [x] Edit action in the controller
+- [x] There is an Edit View page
 - [] There is an Edit form
-- [] Form upadates the discount
-- [] User is redirected to discounts index page
+- [] User can update the discount info via the form
+- [] User is redirected to discounts index page after submitting changes.
 
 ### Story 4
 
