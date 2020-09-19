@@ -30,10 +30,9 @@
 
 #### Item/Discount association
 
-- [] Item/Discount Associations test.
-  - [] Discount has_many items
-  - [] item has one discount
-    - [] Create items discount_id foreign key
+- [x] Item/Discount Associations test.
+  - [x] Discount has_many items
+    - [x] Create items discount_id foreign key
 
 ### Story 1
 
@@ -42,11 +41,15 @@
 - [] Can create a 'bulk' discount for the shop products. New action/view
   - [x] In the Merchant's Dashboard there is a link to a form to create new item
     - [x] Create feature test
-  - [] There is a form to create new item
-  - [] Discount ONLY applies when item quantity is met with the SAME item.
-  - [] Discount DOESN'T applies when items are DIFFERENT.
-  - [] Merchant can have multiple discounts. Database
-  - [] Merchant shop's discounts only apply to merchant's items
+  - [x] There is a form to create new item
+
+#### Story 1.1
+
+- [] Merchant can have multiple discounts. Database
+
+#### Story 1.2
+
+- [] Merchant shop's discounts only apply to merchant's items
 
 ### Story 2
 
@@ -73,8 +76,13 @@
 
 ### Story 5
 
-- [] When there is a conflict between two discounts, the greater of the two will be applied
+- [] Discount ONLY applies when item quantity is met with the SAME item.
+- [] Discount DOESN'T applies when items are DIFFERENT.
 
 ### Story 6
+
+- [] When there is a conflict between two discounts, the greater of the two will be applied
+
+### Story 7
 
 - [] Final discounted prices should appear on the orders show page
