@@ -40,6 +40,8 @@
 #### Create
 
 - [] Can create a 'bulk' discount for the shop products. New action/view
+  - [x] In the Merchant's Dashboard there is a link to a form to create new item
+    - [x] Create feature test
   - [] There is a form to create new item
   - [] Discount ONLY applies when item quantity is met with the SAME item.
   - [] Discount DOESN'T applies when items are DIFFERENT.
