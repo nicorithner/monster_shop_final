@@ -4,6 +4,7 @@ class Merchant::DiscountsController < Merchant::BaseController
   end
 
   def new
+    @discount = Discount.new
   end
 
   def create
@@ -18,9 +19,16 @@ class Merchant::DiscountsController < Merchant::BaseController
     @discount = Discount.find(params[:id])
   end
 
+  def update
+    @discount = Discount.find(params[:id])
+    @discount.update(discount_params)
+    redirect_to "/merchant/discounts"
+    flash[:success] = "Discount #{@discount.name} updated!"
+  end
+
   private
 
   def discount_params
-    params.permit(:name, :discount_percentage, :minimum_quantity)
+    params.require(:discount).permit(:name, :discount_percentage, :minimum_quantity)
   end
 end
