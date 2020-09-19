@@ -38,11 +38,11 @@
 
 #### Create
 
-- [] Can create a 'bulk' discount for the shop products. New action/view
+- [x] Can create a 'bulk' discount for the shop products. New action/view
   - [x] In the Merchant's Dashboard there is a link to a form to create new item
     - [x] Create feature test
   - [x] There is a form to create new discount
-  - [] It creates a new discount
+  - [x] It creates a new discount
 
 #### Story 1.1
 
