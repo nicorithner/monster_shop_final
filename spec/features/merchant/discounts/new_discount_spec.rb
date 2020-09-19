@@ -28,7 +28,7 @@ RSpec.describe "New Discount Page" do
       visit '/merchant'
       expect(page).to have_link("Create Discount")
       click_link("Create Discount")
-      expect(current_path).to eq("merchant/discounts/new")
+      expect(current_path).to eq("/merchant/discounts/new")
     end
   end
 end
