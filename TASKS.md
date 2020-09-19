@@ -58,11 +58,11 @@
 #### Read
 
 - [] Merchant can access discount show page through link in dashboard
-- [] Merchant has a discount show page in his shop. Show action/view
-  - [] Can see a list of existing discounts for the shop.
-    - [] Discount 'Name'
-    - [] Discount 'discount_percentage'
-    - [] Discount 'minimum_quantity'
+- [x] Merchant has a discount index page in his shop. Show action/view
+  - [x] Can see a list of existing discounts for the shop.
+    - [x] Discount 'Name'
+    - [x] Discount 'discount_percentage'
+    - [x] Discount 'minimum_quantity'
 
 ### Story 3
 
