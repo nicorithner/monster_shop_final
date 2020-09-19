@@ -2,9 +2,12 @@
 <p><%= @merchant.address %></p>
 <p><%= @merchant.city %> <%= @merchant.state %> <%= @merchant.zip %></p>
 
-<%= link_to 'My Items', '/merchant/items' %>
-<%= link_to 'Create Discount', 'merchant/discounts/new' %>
-
+<div>
+  <%= link_to 'My Items', '/merchant/items' %><br/>
+  <%= link_to 'View Discounts', 'merchant/discounts' %><br/>
+  <%= link_to 'Create Discount', 'merchant/discounts/new' %>
+</div>
+<p></p>
 <section class="orders">
   <% @merchant.pending_orders.each do |order| %>
     <section id="order-<%= order.id %>">
