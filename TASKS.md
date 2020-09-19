@@ -10,7 +10,7 @@
 
 ## Stories
 
-### Discount Validation
+### Discount Model - Validations
 
 - [x] Validation test
 - [x] Discount model validates :name, :discount_percentage, :minimum_quantity
@@ -21,10 +21,10 @@
 
 #### Merchant/Discount association
 
-- [] Merchant/Discount Associations test
-  - [] Discount belongs to merchant
-  - [] merchant has_many discounts
-    - [] Create items merchant_id foreign key
+- [x] Merchant/Discount Associations tests
+  - [x] Discount belongs to merchant
+    - [x] Create discount's 'merchant_id' foreign key
+  - [x] merchant has_many discounts
 
 ### Associations - Story 2
 
