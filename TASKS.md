@@ -13,7 +13,7 @@
 ### Discount Validation
 
 - [] Validation test
-- [] Discount model validates :name, :percentage_discount, :minimum_quantity
+- [] Discount model validates :name, :discount_percentage, :minimum_quantity
 - [] Create table
 - [] Run db:migrate
 
