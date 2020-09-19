@@ -57,7 +57,7 @@
 
 #### Read
 
-- [] Merchant can access discount show page through link in dashboard
+- [x] Merchant can access discount show page through link in dashboard
 - [x] Merchant has a discount index page in his shop. Show action/view
   - [x] Can see a list of existing discounts for the shop.
     - [x] Discount 'Name'
