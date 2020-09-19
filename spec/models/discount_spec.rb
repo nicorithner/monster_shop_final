@@ -9,5 +9,7 @@ RSpec.describe Discount do
 
   describe 'Associations' do
     it {should belong_to :merchant}
+    it {should have_many(:items).through(:merchant)}
+
   end
 end
