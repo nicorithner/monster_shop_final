@@ -1,0 +1,15 @@
+<h1>Create New Discount</h1>
+
+<%= form_with(model: @discount, url: "/merchant/discounts") do |form| %>
+
+  <%= form.label :name %><br/>
+  <%= form.text_field :name %><br/>
+
+  <%= form.label :discount_percentage %><br/>
+  <%= form.text_field :discount_percentage %><br/>
+
+  <%= form.label :minimum_quantity %><br/>
+  <%= form.number_field :minimum_quantity %><br/>
+
+  <%= form.submit 'Create' %>
+<%end%>
