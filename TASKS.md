@@ -31,8 +31,8 @@
 #### Item/Discount association
 
 - [x] Item/Discount Associations test.
-  - [x] Discount has_many items
-    - [x] Create items discount_id foreign key
+  - [x] Discount has_many items THROUGH merchant
+  - [x] item has 'discount_id' foreign key
 
 ### Story 1
 
