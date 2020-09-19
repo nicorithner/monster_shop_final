@@ -46,7 +46,7 @@
 
 #### Story 1.1
 
-- [] Merchant can have multiple discounts. Database
+- [x] Merchant can have multiple discounts. Database
 
 #### Story 1.2
 
