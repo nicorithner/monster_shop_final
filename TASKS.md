@@ -85,14 +85,86 @@
 
 ### Story 5
 
-- [] Can ASSIGN a discount to an item. i.e. 'M&Ms' -> '5% off 5'
-- [] Discount ONLY applies when item quantity is met with the SAME item.
-- [] Discount DOESN'T applies when items are DIFFERENT.
+- [x] When a user adds enough value or quantity of a single item to their cart, the bulk discount will automatically show up on the cart page.
+  - [x] Discount ONLY applies when item quantity is met with the SAME item.
+  - [x] When there is a conflict between two discounts, the greater of the two will be applied
+  - [x] Discount DOESN'T applies when items are DIFFERENT.
 
 ### Story 6
 
-- [] When there is a conflict between two discounts, the greater of the two will be applied
+- [] Discount shows in the cart page
+- [] Final discounted prices should appear on the orders show page
 
 ### Story 7
 
-- [] Final discounted prices should appear on the orders show page
+- [] A bulk discount from one merchant will only affect items from that merchant in the cart.
+
+
+
+## Notes:
+
+Cart:
+
+- I can see the Merchant
+- I can see the Item
+- @contents shows me the 'id' and the quantity of it in the cart
+- I can access the discounts:
+  Item.find(item_id).merchant.discounts
+- I can obtain a discount value:
+  discount_value = Item.find(item_id).merchant.discounts.first.discount_percentage
+
+
+  1. Is there a discount for this item?
+  2. #count_of(item_id) == discount.minimum_quantity?
+  3. subtotal_of(item_id) * discount_value
+
+  Methods:
+
+  - #check_for_item_discounts(item_id)
+      `Item.find(item_id).merchant.discounts`
+  - #match_by_discount_criteria(item_id)
+
+    discounts = Item.find(item_id).merchant.discounts
+    #=> returns collection of associations that act like an array
+
+    discounts.select(:minimum_quantity).find_by(minimum_quantity: @contents[item_id.to_s]).minimum_quantity
+    #=> returns an integer
+
+
+  - #discount_value(item_id)
+  ```
+  def discount_value(item_id)
+    if match_by_discount_criteria(item_id)
+      match_by_discount_criteria(item_id).discount_percentage
+    end
+  end
+  ```
+
+  All of this materializes inside #subtotal_of(item_id)
+
+  price = unless discount_value(item_id).nil?
+    Item.find(item_id).price * discount_value(item_id)
+    else
+    Item.find(item_id).price
+  end
+
+Issue!
+when the discount criteria is not met then
+match_by_discount_criteria(item_id) returns
+nil.
+
+matcher:
+if not nil and it matches then retun the discount object, else return a string "no discount"
+
+discount value: 
+if matcher = "no discount"
+return 1
+else return 
+extracted value
+end
+
+
+Issue! 2
+
+
+discounts.select(:minimum_quantity).find_by('minimum_quantity <= ?', total).minimum_quantity

@@ -37,10 +37,33 @@ class Cart
   end
 
   def subtotal_of(item_id)
-    @contents[item_id.to_s] * Item.find(item_id).price
+    price = Item.find(item_id).price * discount_value(item_id)
+    @contents[item_id.to_s] * price
   end
 
   def limit_reached?(item_id)
     count_of(item_id) == Item.find(item_id).inventory
+  end
+
+  def check_for_item_discounts(item_id)
+    Item.find(item_id).merchant.discounts
+  end
+
+  def match_by_discount_criteria(item_id)
+    discounts = check_for_item_discounts(item_id)
+    total = @contents[item_id.to_s]
+    if discounts.find_by('minimum_quantity <= ?', total) != nil && total >= discounts.where('minimum_quantity <= ?', total).order(discount_percentage: :asc).pluck(:discount_percentage).first
+    discounts.where('minimum_quantity <= ?', total).order(discount_percentage: :asc).first
+    else
+      "No discount available"
+    end
+  end
+
+  def discount_value(item_id)
+    if match_by_discount_criteria(item_id) == "No discount available"
+      1
+    else 
+      match_by_discount_criteria(item_id).discount_percentage
+    end
   end
 end
