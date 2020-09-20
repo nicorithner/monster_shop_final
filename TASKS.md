@@ -81,7 +81,7 @@
 
 #### Delete
 
-- [] Can delete discounts. Destroy action
+- [x] Can delete discounts. Destroy action
 
 ### Story 5
 
