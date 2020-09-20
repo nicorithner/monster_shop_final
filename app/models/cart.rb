@@ -37,11 +37,7 @@ class Cart
   end
 
   def subtotal_of(item_id)
-    price = if discount_value(item_id) != 0
-      Item.find(item_id).price * discount_value(item_id)
-    else
-      Item.find(item_id).price
-    end
+    price = Item.find(item_id).price * discount_value(item_id)
     @contents[item_id.to_s] * price
   end
 
@@ -56,13 +52,17 @@ class Cart
   def match_by_discount_criteria(item_id)
     discounts = check_for_item_discounts(item_id)
     total = @contents[item_id.to_s]
-    if total >= discounts.select(:minimum_quantity).find_by(minimum_quantity: total).minimum_quantity
+    if discounts.find_by(minimum_quantity: total) != nil && total >= discounts.select(:minimum_quantity).find_by(minimum_quantity: total).minimum_quantity
       discounts.find_by(minimum_quantity: total)
+    else
+      "No discount available"
     end
   end
 
   def discount_value(item_id)
-    if match_by_discount_criteria(item_id)
+    if match_by_discount_criteria(item_id) == "No discount available"
+      1
+    else 
       match_by_discount_criteria(item_id).discount_percentage
     end
   end
