@@ -52,11 +52,6 @@ RSpec.describe Cart do
       expect(@cart.count_of(@giant.id)).to eq(2)
     end
 
-    # it '.subtotal_of()' do
-      # expect(@cart.subtotal_of(@ogre.id)).to eq(20)
-      # expect(@cart.subtotal_of(@giant.id)).to eq(100)
-    # end
-
     it '.limit_reached?()' do
       expect(@cart.limit_reached?(@ogre.id)).to eq(false)
       expect(@cart.limit_reached?(@giant.id)).to eq(true)
@@ -92,8 +87,7 @@ RSpec.describe Cart do
       expect(@cart.discount_value(@ogre.id)).to eq(0.95)   
     end
 
-    it ".subtotal_of()" do
-      # binding.pry
+    it "#subtotal_of" do
       expect(@cart.subtotal_of(@ogre.id)).to eq(20)
       expect(@cart.count_of(@ogre.id)).to eq(1)
       
