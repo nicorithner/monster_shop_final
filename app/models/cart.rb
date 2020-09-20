@@ -19,15 +19,21 @@ class Cart
   end
 
   def items
-    @contents.map do |item_id, _|
+    cart_items = @contents.map do |item_id, _|
       Item.find(item_id)
     end
+    cart_items
+    updated = cart_items.each do|item| 
+      item[:price] = item[:price] * discount_value(item[:id])
+    end
+    updated
   end
 
   def grand_total
     grand_total = 0.0
     @contents.each do |item_id, quantity|
-      grand_total += Item.find(item_id).price * quantity
+      price = Item.find(item_id).price * discount_value(item_id)
+      grand_total += price * quantity
     end
     grand_total
   end

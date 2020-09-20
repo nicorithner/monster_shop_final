@@ -9,6 +9,9 @@ RSpec.describe 'Cart Show Page' do
       @ogre = @megan.items.create!(name: 'Ogre', description: "I'm an Ogre!", price: 20, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw', active: true, inventory: 5 )
       @giant = @megan.items.create!(name: 'Giant', description: "I'm a Giant!", price: 50, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw', active: true, inventory: 3 )
       @hippo = @brian.items.create!(name: 'Hippo', description: "I'm a Hippo!", price: 50, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw', active: true, inventory: 3 )
+
+      @discount_1 = @megan.discounts.create(name: "5% off 5", discount_percentage: 0.95, minimum_quantity: 5)
+      @discount_2 = @megan.discounts.create(name: "10% off 10", discount_percentage: 0.90, minimum_quantity: 10)
     end
 
     describe 'I can see my cart' do
@@ -166,6 +169,37 @@ RSpec.describe 'Cart Show Page' do
         expect(current_path).to eq('/cart')
         expect(page).to_not have_content("#{@hippo.name}")
         expect(page).to have_content("Cart: 0")
+      end
+    end
+
+    describe "Discount displays after applied" do
+      
+      it "Discount shows in the cart page" do
+        visit item_path(@ogre)
+        click_button 'Add to Cart'
+        visit '/cart'
+
+        within "#item-#{@ogre.id}" do
+          4.times do
+            click_button('More of This!')
+          end
+        end
+
+        expect(page).to have_content("Subtotal: $95.00")
+      end
+      
+      it "Discount shows in the cart page" do
+        visit item_path(@ogre)
+        click_button 'Add to Cart'
+        visit '/cart'
+
+        within "#item-#{@ogre.id}" do
+          4.times do
+            click_button('More of This!')
+          end
+        end
+
+        expect(page).to have_content("Subtotal: $95.00")
       end
     end
   end
