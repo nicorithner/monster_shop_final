@@ -92,12 +92,12 @@
 
 ### Story 6
 
-- [] Discount shows in the cart page
-- [] Final discounted prices should appear on the orders show page
+- [x] Discount shows in the cart page
+- [x] Final discounted prices should appear on the orders show page
 
 ### Story 7
 
-- [] A bulk discount from one merchant will only affect items from that merchant in the cart.
+- [x] A bulk discount from one merchant will only affect items from that merchant in the cart.
 
 
 
@@ -168,3 +168,26 @@ Issue! 2
 
 
 discounts.select(:minimum_quantity).find_by('minimum_quantity <= ?', total).minimum_quantity
+
+##### Issue 3!
+
+discount shows in cart but not in the order page.
+item price is not changed in the view
+-----
+When orders_controller create action iterates over the cart items
+(cart.items) retrieves the item price.
+
+I need to update the item's price in cart.items
+
+```
+[5] pry(#<Cart>)> cart_items[0].price
+=> 20.0
+[6] pry(#<Cart>)> cart_items[0][:price] = 15
+=> 15
+[7] pry(#<Cart>)> cart_items[0].price
+=> 15.0
+```
+This worked:
+```
+updated = cart_items.each {|item| item[:price] = item[:price] * discount_value(item[:id])}
+```
