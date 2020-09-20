@@ -96,8 +96,14 @@ RSpec.describe Cart do
       end
       expect(@cart.count_of(@ogre.id)).to eq(5)
       expect(@cart.subtotal_of(@ogre.id)).to eq(95)
+
+      3.times do
+        @cart.add_item(@ogre.id.to_s)
+      end
+      expect(@cart.count_of(@ogre.id)).to eq(8)
+      expect(@cart.subtotal_of(@ogre.id)).to eq(152)
       
-      5.times do
+      2.times do
         @cart.add_item(@ogre.id.to_s)
       end
       expect(@cart.count_of(@ogre.id)).to eq(10)
