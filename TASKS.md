@@ -85,14 +85,16 @@
 
 ### Story 5
 
-- [] Can ASSIGN a discount to an item. i.e. 'M&Ms' -> '5% off 5'
-- [] Discount ONLY applies when item quantity is met with the SAME item.
-- [] Discount DOESN'T applies when items are DIFFERENT.
+- [] When a user adds enough value or quantity of a single item to their cart, the bulk discount will automatically show up on the cart page.
+  - [] Discount ONLY applies when item quantity is met with the SAME item.
+  - [] When there is a conflict between two discounts, the greater of the two will be applied
+  - [] Discount DOESN'T applies when items are DIFFERENT.
 
 ### Story 6
 
-- [] When there is a conflict between two discounts, the greater of the two will be applied
+- [] Discount shows in the cart page
+- [] Final discounted prices should appear on the orders show page
 
 ### Story 7
 
-- [] Final discounted prices should appear on the orders show page
+- [] A bulk discount from one merchant will only affect items from that merchant in the cart.
