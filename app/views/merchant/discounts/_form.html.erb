@@ -1,0 +1,9 @@
+<%= form_for [:merchant, @discount] do |form| %>
+<%= form.label :name %><br />
+<%= form.text_field :name %><br />
+<%= form.label :discount_percentage %><br />
+<%= form.text_field :discount_percentage %><br />
+<%= form.label :minimum_quantity %><br />
+<%= form.number_field :minimum_quantity %><br />
+<%= form.submit button_text%>
+<%end%>

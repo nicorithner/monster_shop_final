@@ -65,10 +65,17 @@
     - [x] Discount 'minimum_quantity'
 
 ### Story 3
-
+- [x]
 #### Update
 
-- [] Can edit shop discounts. Update action/view
+- [x] Merchant can update discounts. Test #update
+- [x] Create Feature tests
+- [] Access form via discounts index where there is an 'Edit' link.
+- [x] Edit action in the controller
+- [x] There is an Edit View page
+- [x] There is an Edit form
+- [x] User can update the discount info via the form
+- [x] User is redirected to discounts index page after submitting changes.
 
 ### Story 4
 
@@ -78,6 +85,7 @@
 
 ### Story 5
 
+- [] Can ASSIGN a discount to an item. i.e. 'M&Ms' -> '5% off 5'
 - [] Discount ONLY applies when item quantity is met with the SAME item.
 - [] Discount DOESN'T applies when items are DIFFERENT.
 
