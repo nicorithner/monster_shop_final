@@ -88,14 +88,20 @@ RSpec.describe Cart do
     end
 
     it "#subtotal_of" do
-      expect(@cart.subtotal_of(@ogre.id)).to eq(20)
       expect(@cart.count_of(@ogre.id)).to eq(1)
+      expect(@cart.subtotal_of(@ogre.id)).to eq(20)
       
       4.times do
         @cart.add_item(@ogre.id.to_s)
       end
       expect(@cart.count_of(@ogre.id)).to eq(5)
-      expect(@cart.subtotal_of(@ogre.id)).to eq(95)   
+      expect(@cart.subtotal_of(@ogre.id)).to eq(95)
+      
+      5.times do
+        @cart.add_item(@ogre.id.to_s)
+      end
+      expect(@cart.count_of(@ogre.id)).to eq(10)
+      expect(@cart.subtotal_of(@ogre.id)).to eq(180)   
     end
   end
 end
