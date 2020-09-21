@@ -30,8 +30,6 @@ Merchants add bulk discount rates for all of their inventory. These apply automa
 - Advanced ActiveRecord
 - Software Testing
 
-
-
 ---
 
 # Additional Extensions

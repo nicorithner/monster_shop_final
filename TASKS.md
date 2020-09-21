@@ -99,95 +99,44 @@
 
 - [x] A bulk discount from one merchant will only affect items from that merchant in the cart.
 
+-------------------------
+##  Users have multiple addresses
 
+#### General Goal
 
-## Notes:
+Users will have more than one address associated with their profile. Each address will have a nickname like "home" or "work". Users will choose an address when checking out.
 
-Cart:
+#### Completion Criteria
 
-- I can see the Merchant
-- I can see the Item
-- @contents shows me the 'id' and the quantity of it in the cart
-- I can access the discounts:
-  Item.find(item_id).merchant.discounts
-- I can obtain a discount value:
-  discount_value = Item.find(item_id).merchant.discounts.first.discount_percentage
+1. When a user registers they will still provide an address, this will become their first address entry in the database and nicknamed "home".
+1. Users need full CRUD ability for addresses from their Profile page.
+1. An address cannot be deleted or changed if it's been used in a "shipped" order.
+1. When a user checks out on the cart show page, they will have the ability to choose one of their addresses where they'd like the order shipped.
+1. If a user deletes all of their addresses, they cannot check out and see an error telling them they need to add an address first. This should link to a page where they add an address.
+1. If an order is still pending, the user can change to which address they want their items shipped.
 
+#### Implementation Guidelines
 
-  1. Is there a discount for this item?
-  2. #count_of(item_id) == discount.minimum_quantity?
-  3. subtotal_of(item_id) * discount_value
+1. Existing tests should still pass. Since you will need to make major changes to your database schema, you will probably break **many** tests. It's recommended that you focus on the completion criteria described above before going back and refactoring your code so that your existing tests still work.
+1. Every order show page should display the chosen shipping address.
+1. Statistics related to city/state should still work as before.
 
-  Methods:
+---
 
-  - #check_for_item_discounts(item_id)
-      `Item.find(item_id).merchant.discounts`
-  - #match_by_discount_criteria(item_id)
+## Tasks
 
-    discounts = Item.find(item_id).merchant.discounts
-    #=> returns collection of associations that act like an array
+- [] First address user provides gets saved with nickname 'home'
 
-    discounts.select(:minimum_quantity).find_by(minimum_quantity: @contents[item_id.to_s]).minimum_quantity
-    #=> returns an integer
+### CRUD
 
+From users's profile page:
 
-  - #discount_value(item_id)
-  ```
-  def discount_value(item_id)
-    if match_by_discount_criteria(item_id)
-      match_by_discount_criteria(item_id).discount_percentage
-    end
-  end
-  ```
+1. - [] User can create a new address -> Create
+2. - [] User can read a new address -> Read
+3. - [] User can update a new address -> Update
+4. - [] User can delete a new address -> Destroy
 
-  All of this materializes inside #subtotal_of(item_id)
-
-  price = unless discount_value(item_id).nil?
-    Item.find(item_id).price * discount_value(item_id)
-    else
-    Item.find(item_id).price
-  end
-
-Issue!
-when the discount criteria is not met then
-match_by_discount_criteria(item_id) returns
-nil.
-
-matcher:
-if not nil and it matches then retun the discount object, else return a string "no discount"
-
-discount value: 
-if matcher = "no discount"
-return 1
-else return 
-extracted value
-end
-
-
-Issue! 2
-
-
-discounts.select(:minimum_quantity).find_by('minimum_quantity <= ?', total).minimum_quantity
-
-##### Issue 3!
-
-discount shows in cart but not in the order page.
-item price is not changed in the view
------
-When orders_controller create action iterates over the cart items
-(cart.items) retrieves the item price.
-
-I need to update the item's price in cart.items
-
-```
-[5] pry(#<Cart>)> cart_items[0].price
-=> 20.0
-[6] pry(#<Cart>)> cart_items[0][:price] = 15
-=> 15
-[7] pry(#<Cart>)> cart_items[0].price
-=> 15.0
-```
-This worked:
-```
-updated = cart_items.each {|item| item[:price] = item[:price] * discount_value(item[:id])}
-```
+- [] An address cannot be deleted or changed if it's been used in a "shipped" order.
+- [] When a user checks out on the cart show page, they will have the ability to choose one of their addresses where they'd like the order shipped.
+- [] If a user deletes all of their addresses, they cannot check out and see an error telling them they need to add an address first. This should link to a page where they add an address.
+- [] If an order is still pending, the user can change to which address they want their items shipped.
