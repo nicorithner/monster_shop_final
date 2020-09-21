@@ -105,5 +105,22 @@ RSpec.describe "User Profile Path" do
       expect(page).to have_content("email: [\"has already been taken\"]")
       expect(page).to have_button "Update Profile"
     end
+
+    describe "User can create multiple addresses from the profile page" do
+      before :each do
+        @user_1 = User.create!(name: 'Megan', address: '123 Main St', city: 'Denver', state: 'CO', zip: 80218, email: 'megan@example.com', password: 'securepassword')
+        visit login_path
+
+        fill_in 'Email', with: @user_1.email
+        fill_in 'Password', with: "newpassword"
+        click_button 'Log In'
+      end
+      it "User's address provided upon registration has a nickname: 'home'" do
+        expect(current_path).to eq(profile_path)
+        
+        ### Where do I store the "nickname"?
+
+      end
+    end
   end
 end
