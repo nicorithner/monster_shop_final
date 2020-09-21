@@ -131,7 +131,7 @@ Users will have more than one address associated with their profile. Each addres
 
 From users's profile page:
 
-1. - [] User can create a new address -> Create
+1. - [] User can create multiple addresses -> Create
 2. - [] User can read a new address -> Read
 3. - [] User can update a new address -> Update
 4. - [] User can delete a new address -> Destroy
@@ -140,3 +140,28 @@ From users's profile page:
 - [] When a user checks out on the cart show page, they will have the ability to choose one of their addresses where they'd like the order shipped.
 - [] If a user deletes all of their addresses, they cannot check out and see an error telling them they need to add an address first. This should link to a page where they add an address.
 - [] If an order is still pending, the user can change to which address they want their items shipped.
+
+### Set up
+
+- [x] Create Address model test
+- [x] Create Address model
+  - [x] `validates :street, :city, :state, :zip, :nickname, presence: true`
+  - [x] belongs to user
+- [x] Create Addresses table
+  - [x] Add user_id foreign key
+  - [x] User has many addresses
+
+### Story 1 - User can create multiple addresses & User can see a new addresses in profile
+
+- [] Create class method test for Create
+  - [] Test it can create multiple
+  - [] Test nickname default is 'home'
+  - [] New addresses' nickname are custom
+
+- [] Create 'new' feature test
+  - [] Creates address from new user registration form
+  - [] Creates address from user profile
+- [] Create user's profile display feature test
+  - [] List of user's addresses in profile
+  - [] 'Create New Address' link in profile
+  - [] Nickname displays in front of the address. i.e. "work: address info here"

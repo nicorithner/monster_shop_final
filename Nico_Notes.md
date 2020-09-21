@@ -89,3 +89,16 @@ This worked:
 ```
 updated = cart_items.each {|item| item[:price] = item[:price] * discount_value(item[:id])}
 ```
+
+
+## Extension 1 Notes
+
+Create address table with user_id?
+how does that affect user creation?
+
+`rails g model Address street city state zip nickname`
+`rails db:migrate`
+`rails g migration AddUsersToAddresses user:references`
+`rails db:migrate`
+
+To create us a nested form_for within user's form.
