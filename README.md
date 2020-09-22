@@ -9,6 +9,9 @@
 
 [Nico Rithner](https://github.com/nicorithner) <br>
 
+[**Project Requirements**](https://github.com/nicorithner/monster_shop_final/blob/main/REQUIREMENTS.md)
+
+[**Heroku Deployment**](https://morning-bastion-30399.herokuapp.com/root)
 
 
 ## Overview
