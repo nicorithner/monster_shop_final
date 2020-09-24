@@ -57,9 +57,14 @@ class Cart
 
   def match_by_discount_criteria(item_id)
     discounts = check_for_item_discounts(item_id)
-    total = @contents[item_id.to_s]
-    if discounts.find_by('minimum_quantity <= ?', total) != nil && total >= discounts.where('minimum_quantity <= ?', total).order(discount_percentage: :asc).pluck(:discount_percentage).first
-    discounts.where('minimum_quantity <= ?', total).order(discount_percentage: :asc).first
+    total = count_of(item_id)
+    match = discounts.find_by('minimum_quantity <= ?', total)  && 
+            total >= discounts.where('minimum_quantity <= ?', total)
+                        .order(discount_percentage: :asc)
+                        .pluck(:discount_percentage).first
+    if match
+      discounts.where('minimum_quantity <= ?', total)
+      .order(discount_percentage: :asc).first
     else
       "No discount available"
     end

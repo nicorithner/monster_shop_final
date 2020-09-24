@@ -1,5 +1,5 @@
 <h2>Edit Item</h2>
-<%= form_tag "/merchant/items/#{@item.id}", method: :patch do %>
+<%= form_tag merchant_item_path(@item.id), method: :patch do %>
 <ul>
   <%= label_tag :name %>
   <%= text_field_tag :name %>
